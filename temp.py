@@ -1,25 +1,41 @@
-def temp1(x,y,z):
+x = y = z = 0
+
+com1 = "Please use only numbers and dot (.) as decimal separator"
+com2 = "Please select: 1-add, 2-substract, 3-multiply, 4-divide: "
+com_e = "Sorry, I can't do this. "
+
+while type(x) != float:
+    try:
+        x = float(input("x: "))
+    except ValueError:
+        print (com_e + com1)
+
+while type(y) != float:
+    try:
+        y = float(input("y: "))
+    except ValueError:
+        print (com_e + com1)
+
+while type(z) != float or ((z<1) or (z>4)):
+    try:
+        z = float(input(com2))
+    except ValueError:
+        print (com_e)
+
+def calc(x,y,z):
     if z == 1:
-        print(x+y)
+        print("Add result for %d and %d is: " % (x, y), x+y)
     elif z == 2:
-        print(x-y)
+        print("Substract result for %d and %d is: " % (x, y), x-y)
     elif z == 3:
-        print(x*y)
+        print("Multiply result for %d and %d is: " % (x, y), x*y)
     elif z == 4:
-        print(x/y)
+        try:
+            print("Divide result for %d and %d is: " % (x, y), x/y)
+        except ZeroDivisionError as err:
+            print(com_e + "(" + str(err) + ")")
     else:
-        print("error typeofcalc")
-#x=float (input("x: "))
-#y=float (input("y: "))
-#z=float (input("z: "))
-#temp1(x,y,z)
+        print("Something goes wrong")
 
-x=(input("x: "))
-y=(input("y: "))
-z=(input("z: "))
-#temp1(x,y,z)
+calc(x,y,z)
 
-print(type(x))
-print(type(y))
-print(type(z))
-print(x)
