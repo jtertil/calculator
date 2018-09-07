@@ -38,6 +38,3 @@ def calc(x,y,z):
         print("Something goes wrong")
 
 calc(x,y,z)
-
-# run = True
-# while(run)
